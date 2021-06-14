@@ -1,5 +1,8 @@
 package ex31_ad;
 //Working just need to complete the first design of input.
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 /*
@@ -13,26 +16,27 @@ Intesity from 55% to 95%
  */
 public class App_ex31 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        Scanner in = new Scanner(System.in);
+        //Scanner in = new Scanner(System.in);
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
         boolean d = true;
-        String pulse;
+        //String pulse = new String();
         int pulse_num = 0;
-        String age;
+       // String age = new String();
         int age_num = 0;
 
 
         while(d) {
-            System.out.print("Resting pulse: ");
-            pulse = in.nextLine();
+       //
+            //pulse = in.readLine();
             System.out.print("Age: ");
-            age = in.nextLine();
+           // age = in.readLine();
 
             try {
-                pulse_num = Integer.parseInt(pulse);
-                age_num = Integer.parseInt(age);
+               // pulse_num = Integer.parseInt(pulse);
+               // age_num = Integer.parseInt(age);
                 d = false;
             } catch (NumberFormatException ex) {
                 System.out.println("Please enter a correct number!");

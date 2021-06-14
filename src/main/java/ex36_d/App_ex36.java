@@ -1,4 +1,4 @@
-package ex36_ad;
+package ex36_d;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -67,7 +67,7 @@ public class App_ex36 {
 
        // mean = Find_Average(list_numbers); //Function created to find the mean
         Double average = list_numbers.stream().mapToInt(val -> val).average().orElse(0.0);
-
+        double std = Find_StandardDeviation(list_numbers,average);
 
         System.out.printf("\nThe average is %.1f",average);
 
@@ -75,9 +75,10 @@ public class App_ex36 {
 
         System.out.println("The maximum is " + Collections.max(list_numbers));
 
+        System.out.printf("The standard deviation is %.2f",std);
     }
     //Function to find the average.
-    public static double Find_Average (ArrayList<Integer> list_numbers){
+   /* public static double Find_Average (ArrayList<Integer> list_numbers){
         int sum = 0;
 
         for(int i = 0; i < list_numbers.size(); i++){
@@ -85,7 +86,21 @@ public class App_ex36 {
         }
         return (sum/ list_numbers.size());
     }
-    public static double Find_StandardDeviation(ArrayList <Integer> list_numbers){
-        return 0;
+    */
+    public static double Find_StandardDeviation(ArrayList <Integer> list_numbers, double mean){
+        double answer = 0;
+
+        double first = 0;
+        double second = 0;
+
+        for(int i = 0; i < list_numbers.size(); i++) {
+            first = first + Math.pow(list_numbers.get(i) - mean,2);
+        }
+
+        second = first/list_numbers.size();
+
+        answer = Math.sqrt(second);
+
+        return answer;
     }
 }

@@ -1,7 +1,7 @@
-package ex27;
+package ex27_ad;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 /*
 The first name must be filled in.
@@ -59,41 +59,46 @@ public class App_ex27 {
     }
     public static boolean check_zipcode(String zipcode){
         try{
-            int zipcode_number = Integer.parseInt(zipcode);
+            Integer.parseInt(zipcode);
         }catch(NumberFormatException ex){
-            System.out.println("The zipcode must be a number");
-            if(zipcode.length() < 4){
+
+            System.out.println("The zipcode must be a 5 digit number.");
+
+           /* if(zipcode.length() < 4){
                 System.out.println("The zipcode must be a 5 digit number."); //Check here
                 return false;
             }
+            */
         }
         return true;
     }
     public static boolean check_employee_id(String employee_id){
-        String regex = "[A-Za-z]+ [A-Za-z]+ -[0-9][0-9][0-9][0-9]"; //Check here
-        if(employee_id.matches(regex)){
+        Pattern p = Pattern.compile("^\\d{2}-\\d{2}$");  // use a better name, though
+        if(p.matcher(employee_id).matches()){
          return true;
         }
         else{
-            System.out.print("The employee ID must be in the format of AA-1234.");
+            System.out.println("The employee ID must be in the format of AA-1234.");
+            return false;
         }
-        return false;
     }
 
     public static void isValid(String first_name, String last_name, String employee_id, String zipcode){
-        if((check_first_name(first_name))){
+        if((!check_first_name(first_name))){
 
         }
-        if(check_last_name(last_name)){
+        if(!check_last_name(last_name)){
 
         }
-        if(check_zipcode(zipcode)){
+        if(!check_employee_id(employee_id)){
 
         }
-        if((check_employee_id(employee_id))){
+        if(!(check_zipcode(zipcode))){
 
         }
-        System.out.println("There were no errors found.");
+        else{
+            System.out.println("\nThere were no errors found.");
+        }
 
     }
     public static void main(String[] args) {
@@ -106,9 +111,9 @@ public class App_ex27 {
         System.out.print("Enter the last name: ");
         String last_name = in.nextLine();
         System.out.print("Enter the zip code: ");
-        String zipcode = in.nextLine();
+        String zipcode = in.next();
         System.out.print("Enter the employee ID: ");
-        String employee_id = in.nextLine();
+        String employee_id = in.next();
 
         //Functions called to make checking
         isValid(first_name,last_name,zipcode,employee_id);
