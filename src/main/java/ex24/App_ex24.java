@@ -1,7 +1,6 @@
-package ex24_d;
+package ex24;
 
 import java.util.Scanner;
-import java.util.Arrays;
 
 /*
     Completed!
@@ -12,29 +11,9 @@ import java.util.Arrays;
 
 public class App_ex24 {
 
-    public static boolean isAnagram(char [] s1, char [] s2, int length_1, int length_2) {
-
-        Arrays.sort(s1);
-        Arrays.sort(s2);
-
-        int j = 0;
-
-        if (length_1 == length_2) {
-
-            for (int i = 0; i < length_1; i++) {
-
-                if (s1[i] == s2[i]) {
-                    j++;
-                }
-            }
-            if (length_1 == j) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
+
+        isAnagram x = new isAnagram();
 
         Scanner in = new Scanner(System.in);
 
@@ -59,15 +38,10 @@ public class App_ex24 {
         for(int i = 0; i < length_2; i++){
             ch_2[i] = s2.charAt(i);
         }
-
-
-        if(isAnagram(ch_1,ch_2,length_1,length_2)){
+        if(x.isAnagram(ch_1,ch_2,length_1,length_2)){
             System.out.printf("'%s' and '%s' are anagrams.",s1,s2);
 
         }
-
-
-
 
     }
 }

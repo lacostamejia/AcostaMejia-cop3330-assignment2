@@ -1,10 +1,11 @@
-package ex25_d;
+package ex25;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class passwordValidator {
-    public static void check(String s1) {
+    public String check(String s1) {
+        String answer = "";
         int counter = 0; //Count the number of numbers in the string
         int counter_2 = 0; //Count the number of letters in the string
         int counter_3 = 0; //Count the number of special characters in the string.
@@ -26,9 +27,8 @@ public class passwordValidator {
                 counter_3 = 1;
             }
         }
-        if (counter > 1 && counter > 1 && s1.length() >= 8 && counter_3 == 1) {
-            System.out.printf("The password '%s' is a very strong password.", s1);
-            return;
+        if (counter > 1 && counter_2 > 1 && s1.length() >= 8 && counter_3 == 1) {
+            answer = ("The password '" + s1 + "' is a very strong password.");
         }
 
         //Checking for a strong password
@@ -44,16 +44,14 @@ public class passwordValidator {
             //Checking for a very strong password
         }
         if (counter > 1 && counter > 1 && s1.length() >= 8) {
-            System.out.printf("The password '%s' is a strong password.", s1);
-            return;
+            answer = ("The password '" + s1 + "' is a strong password.");
         }
 
         //Checking for a weak password - Only letters
         //A weak password contains only letters and is fewer than eight characters.
 
         if (Pattern.matches("[a-zA-Z]+", s1) && s1.length() < 8) {
-            System.out.printf("The password '%s' is a  weak password.", s1);
-            return;
+            answer = ("The password '" + s1 + "' is a weak password.");
         }
 
         counter = 0;
@@ -64,9 +62,9 @@ public class passwordValidator {
             }
         }
         if (counter == s1.length() && s1.length() < 8) {
-            System.out.printf("The password '%s' is a very weak password.", s1);
-            return;
+            answer = ("The password '" + s1 + "' is a very weak password.");
         }
+        return answer;
     }
 
 }

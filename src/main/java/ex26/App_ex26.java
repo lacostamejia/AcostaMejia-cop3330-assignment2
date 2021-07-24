@@ -1,4 +1,4 @@
-package ex26_d;
+package ex26;
 
 /*
     Completed!

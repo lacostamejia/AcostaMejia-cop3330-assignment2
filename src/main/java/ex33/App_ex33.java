@@ -1,8 +1,8 @@
-package ex33_d;
+package ex33;
 
 import java.util.List;
 import java.util.*;
-import java.util.Random;
+
 /*
     Completed!
 yess
@@ -14,6 +14,8 @@ yess
  */
 public class App_ex33 {
     public static void main(String[] args) {
+
+        Random x = new Random();
 
         Scanner in = new Scanner(System.in);
         String question;
@@ -28,8 +30,7 @@ public class App_ex33 {
         System.out.print("What's your question? \n> ");
         question = in.next();
 
-        Random ran = new Random(); //Getting random number
-        random = ran.nextInt(3); //Upperbound is 3 since there are 3 decision.
+        random = x.fun();
 
         System.out.println(list.get(random)); //Get a string from the list with the random number.
 

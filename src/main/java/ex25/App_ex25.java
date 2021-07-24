@@ -1,8 +1,6 @@
-package ex25_d;
+package ex25;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
 
 /*
     Completed!
@@ -20,7 +18,8 @@ public class App_ex25 {
         System.out.print("Enter a password: ");
         String password = in.next();
 
-        d.check(password);
+        String answer = d.check(password);
+        System.out.println(answer);
 
 
 

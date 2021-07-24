@@ -1,4 +1,4 @@
-package ex36_d;
+package ex36;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ The standard deviation is 353.55
 */
 public class App_ex36 {
     public static void main(String[] args) {
-
+        Standard_Deviation x = new Standard_Deviation();
         Scanner in = new Scanner(System.in);
         ArrayList <Integer> list_numbers = new ArrayList<Integer>(); //Array list to save all the integers
         //Then we are going to calculate, and then output
@@ -67,7 +67,7 @@ public class App_ex36 {
 
        // mean = Find_Average(list_numbers); //Function created to find the mean
         Double average = list_numbers.stream().mapToInt(val -> val).average().orElse(0.0);
-        double std = Find_StandardDeviation(list_numbers,average);
+        double std = x.Fun(list_numbers,average);
 
         System.out.printf("\nThe average is %.1f",average);
 
@@ -87,20 +87,4 @@ public class App_ex36 {
         return (sum/ list_numbers.size());
     }
     */
-    public static double Find_StandardDeviation(ArrayList <Integer> list_numbers, double mean){
-        double answer = 0;
-
-        double first = 0;
-        double second = 0;
-
-        for(int i = 0; i < list_numbers.size(); i++) {
-            first = first + Math.pow(list_numbers.get(i) - mean,2);
-        }
-
-        second = first/list_numbers.size();
-
-        answer = Math.sqrt(second);
-
-        return answer;
-    }
 }

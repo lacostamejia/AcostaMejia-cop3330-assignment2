@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Assignment_2" />
+        <module name="AcostaMejia-cop3330-assignment2" />
       </profile>
     </annotationProcessing>
   </component>
