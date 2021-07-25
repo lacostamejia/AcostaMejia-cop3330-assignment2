@@ -1,4 +1,4 @@
-package ex38_d;
+package ex38;
 
 
 /*
@@ -7,11 +7,14 @@ package ex38_d;
  *  Copyright 2021 Luis Andres Acosta Mejia
  *
  */
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App_ex38 {
     public static void main(String[] args) {
 
+        EvenChecker x = new EvenChecker();
+        ArrayList<Integer> answer = new ArrayList<>();
         Scanner in = new Scanner(System.in);
 
         String numbers;
@@ -22,14 +25,9 @@ public class App_ex38 {
 
         String [] numbers_separate = numbers.split(" "); //Here we are separating each one in the array.
         System.out.print("The even numbers are");
-
-        for(int i = 0; i < numbers_separate.length; i++){
-
-            number_to_check = Integer.parseInt(numbers_separate[i]);
-
-            if(number_to_check % 2 == 0){
-                System.out.printf(" %s",numbers_separate[i]);
-            }
+        answer = x.Fun(numbers_separate); //Calling the method of the class
+        for(int i = 0; i < answer.size(); i++){
+            System.out.print(" " + answer.get(i));
         }
         System.out.print(".");
     }
